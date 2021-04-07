@@ -26,7 +26,7 @@ class Simon
 
     unless @game_over
       round_success_message
-      sequence_length += 1
+      @sequence_length += 1
     end
   end
 
