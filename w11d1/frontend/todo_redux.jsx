@@ -10,5 +10,16 @@ document.addEventListener('DOMContentLoaded', () => {
   const store = configureStore(preloadedState);
 
   const root = document.getElementById('content');
+
+  const addLoggingToDispatch = store => {
+    let dispatch = store.dispatch()
+    return (action) => {
+      console.log(store.getState())
+      console.log(action)
+      dispatch(action)
+      console.log(store.getState())
+    }
+  }
+
   ReactDOM.render(<Root store={store} />, root);
 });
